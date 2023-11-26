@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    .sellBtn {
+        text-align: center;
+        margin-top: 3%;
+    }
+    .tbl {
+        padding-right: 20%;
+        padding-left: 20%;
+    }
+    .txt {
+        text-align: center;
+    }
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
+{% endblock head %}
+{% block body %}
+
+{% if user.is_authenticated %}
+    {% if user_type == 1 %}
+        <div class="sellBtn">
+            <a href="myProds" class="waves-effect waves-light btn-large findbtn">My Products</a>
+        </div>
+        <div class="tbl">
+            <h2 style="text-align: center;">Your Orders</h2>
+            <table class="responsive-table centred highlight txt">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                    <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                    </tr>
+                    <tr>
+                        <td>Jonathan</td>
+                        <td>Lollipop</td>
+                        <td>$7.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% elif user_type == 2 %}
+        <h1>customers not allowed</h1>
+    {% endif %}
+{% else %}
+    <h1>user not authenticated</h1>
+{% endif %}
+
+{% endblock body %}

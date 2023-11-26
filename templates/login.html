@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    .homeDiv{
+        text-align:center;
+        margin-top:90px;
+    }
+    
+    .logAs{
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center;
+        margin-top: 40px;
+        font-size: xx-large;
+        color:rgb(65, 168, 206);
+    }
+</style>
+{% endblock head %}
+{% block body %}
+
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <h1 class="logAs" >LOGIN AS</h1>
+        </div>
+        <div class="homeDiv">
+            <div class="row">
+                <div class="col l12 s12 m12"><a href="custLog" class="waves-effect waves-light btn-large findbtn">Customer</a> </div>
+            </div>
+            <div class="row">
+
+                <div class="col l12 s12 m12"><a href="vendLog" class="waves-effect waves-light btn-large findbtn">Vendor</a> </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock body %}

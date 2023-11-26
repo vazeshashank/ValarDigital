@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+    {% block head %}
+    <style>
+        /* Reset some default styles for better consistency */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: (255, 255, 255,0.7) !important;
+        }
+        
+        .categ-container {
+            margin: 0 15%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            
+        }
+    
+        
+        .categ-item {
+            width: calc(33.33% - 5px); /* 33.33% width for large screens with spacing between items */
+            height: 250px;
+            margin-bottom: 20px;
+            background-color: rgba(178, 235, 242, 0.9);
+            padding: 10px;
+            box-sizing: border-box;
+            display: grid;
+            flex-direction: column;
+            border: 0.5px outset ;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .categ-item:hover{
+            background-color:rgba(0,172,193,0.8);
+        }
+        .catDes{
+            
+            color: #fff;
+            text-shadow: 1px 1.9px 0 #000, -1px 1.9px 0 #000, -1px -1.9px 0 #000,1px -1.9px 0 #000;
+            font-size: xx-large;
+        }
+    
+        
+        @media only screen and (max-width: 992px) {
+        .categ-item {
+            width: 100%; /* 100% width for small screens */
+            background-color: rgba(178, 235, 242, 0.8);
+        }
+        }
+    </style>
+    {% endblock head %}
+    {% block body %}
+    
+    <div class="categ-container">
+        <!-- Product item 1 -->
+        <div class="categ-item">
+            <h3 class="catDes">CURD</h3>
+        </div>
+    
+        <!-- Product item 2 -->
+        <div class="categ-item">
+            <h3 class="catDes">MILK</h3>
+        </div>
+        
+        <!-- Product item 3 -->
+        <div class="categ-item">
+           <h3 class="catDes">PANEER</h3>
+        </div>
+    
+        
+        <div class="categ-item">
+            <h3 class="catDes">CHEESE</h3>
+        </div>
+    
+    
+        <div class="categ-item">
+            <h3 class="catDes">BREAD</h3>
+        </div>
+    
+        <div class="categ-item">
+            <h3 class="catDes">YOGURT</h3>
+        </div>
+    </div>
+    {% endblock body %}
+
+    
+
+    
+    
+
+
+
+    
+
+

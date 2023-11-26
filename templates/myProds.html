@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    .edit {
+        background-color: #ffee58;
+        color: black;
+    }
+    .del {
+        background-color: #e53935;
+    }
+    .addBtn {
+        background-color: rgba(178, 235, 242, 0.9);
+        color: black;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .addBtn:hover {
+      background-color: #00acc1;
+      color: black;
+    }
+    .tbl {
+        margin-right: 20%;
+        margin-left: 20%;
+        background-color: rgba(178, 235, 242, 0.4);
+        
+    }
+    a {
+      text-decoration: none;
+    }
+    th{
+      text-align: center;
+    }
+    td{
+      text-align: center;
+    }
+</style>
+{% endblock head %}
+{% block body %}
+{% if user.is_authenticated %}
+<div class="tbl">
+    <h2 style="text-align: center;">My Products</h2>
+    
+    <table class="centred highlight txt">
+        <thead>
+          <tr>
+              <th>Brand</th>
+              <th>Item Name</th> 
+              <th>Description</th>
+              <th>Item Price</th>
+              <th>
+                
+              </th>
+          </tr>
+        </thead>
+        {% for f in myProds %}
+        <tbody>
+          <tr>
+            <td>{{ f.brand }}</td>
+            <td>{{ f.item_name }}</td>
+            <td>{{ f.description }}</td>
+            <td>{{ f.price }}</td>
+
+            <td>
+              <a href="{% url 'edit_product' product_id=f.id %}">
+                <i class="material-icons">edit</i>
+             </a>
+              <a href="{% url 'delete_product' product_id=f.id %}" class="delete-btn">
+                  <i class="material-icons">delete</i>
+              </a>
+          </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <a href="addProd" class="waves-effect waves-light btn-large addBtn">Add Product</a>
+  </div>
+{% else %}
+        <p>You don't have access to this page.</p>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+    <style>
+        
+    </style>
+{% endblock head %}
+{% block body %}
+    <h1 style="text-align:center; color:rgb(65, 168, 206);">Customer Registration</h1>
+    <div class="registerDiv row">
+        
+        <form method="POST" class="col l6 m10 s12 offset-l3 offset-m1 offset-s0">
+            {% csrf_token %}
+            <div class="input-field">
+                <input type="text" name="username" id="username">
+                <label style="color: black;" for="username">Username:</label>
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" id="email">
+                <label style="color: black;" for="email">Email:</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="pass1" id="pass1">
+                <label style="color: black;" for="pass1">Password:</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="pass2" id="pass2">
+                <label style="color: black;" for="pass2">Re-enter Password:</label>
+            </div>
+            <div class="input-field center">
+                <button  class="waves-effect waves-light btn-large findbtn" type="submit">Register</button>
+            </div>
+        </form>
+    
+    </div>
+{% endblock body %}

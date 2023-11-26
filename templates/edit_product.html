@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+   
+   
+   label{
+      color: black !important;
+      font-family: Arial, Helvetica, sans-serif;
+   }
+   .editForm{
+      background-color: rgba(178, 235, 242, 0.8);
+   }
+   .file-field {
+    overflow: hidden; /* Hide overflow content */
+  }
+  .file-field.input-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+   .file-field .file-path-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .file-field label {
+    display: none; /* Hide the label associated with the file field */
+  }
+  .file-field input.file-path {
+    display: none; /* Hide the input field within the file-path-wrapper */
+  }
+  .file-field .file-path-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Hide overflow content */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+  .file-field input.file-path {
+    display: none; /* Hide the input field within the file-path-wrapper */
+  }
+  
+  .file-field .file-path-wrapper span {
+    display: none; /* Hide the "Change:" text within the file-path-wrapper */
+  }
+  .btn{
+   color: black;
+   background-color: #02c0da ;
+  }
+  .btn:hover{
+   background-color: #00acc1;
+   color:black ;
+  }
+
+  
+</style>
+{% endblock head %}
+{% load materializecss %}
+{% block body %}
+
+   <div class="container" style="max-width: 600px; margin-top: 50px;">
+      {% block content %}
+      <h2 class="center-align">Edit Product</h2>
+      <form method="post" enctype="multipart/form-data" class="col s12">
+        {% csrf_token %}
+        
+        <div class="row editForm">
+           <div class="col s12">
+            {{ form|materializecss }}
+              
+           </div>
+        </div>
+        <div class="row">
+         <div class="col s12 center-align">
+            <button class="btn waves-effect waves-light findbtn" type="submit">Save Changes</button>
+         </div>
+       </div>
+     </form>
+     {% endblock content %}
+  </div>
+  
+{% endblock body %}
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+  .mid{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .redd{
+     background-color: red;
+  }
+  .redd:hover{
+    background-color: rgb(180, 7, 7);
+  }
+  .ylw{
+     background-color: yellow;
+  }
+  .ylw:hover{
+    background-color: yellowgreen;
+  }
+</style>
+{% endblock head %}
+{% block body %}
+  <h2 class="mid" style="color: red;">Confirm Deletion</h2>
+  <p class="mid">Are you sure you want to delete "{{ product.item_name }}"?</p>
+
+  <form class="mid " method="post" action="{% url 'delete_product' product_id=product.id %}">
+    {% csrf_token %}
+    <button class="mid redd waves-effect waves-light btn"  type="submit">Delete</button>
+  </form>
+  <div class="mid">
+ <button class="waves-effect waves-light btn ylw" style="margin-top: 10px;">
+  <a href="{% url 'myProds' %}">Cancel</a>
+</button>
+</div>
+{% endblock %}
